@@ -47,27 +47,27 @@
 		var completed 		= '0%';
 		
 				$(myform).ajaxForm({
-					beforeSend: function() { //brfore sending form
-						submitbutton.attr('disabled', ''); // disable upload button
+					beforeSend: function() {
+						submitbutton.attr('disabled', '');
 						statustxt.empty();
-						progressbox.show(); //show progressbar
-						progressbar.width(completed); //initial value 0% of progressbar
-						statustxt.html(completed); //set status text
-						statustxt.css('color','#000'); //initial color of status text
+						progressbox.show();
+						progressbar.width(completed);
+						statustxt.html(completed);
+						statustxt.css('color','#000');
 					},
-					uploadProgress: function(event, position, total, percentComplete) { //on progress
-						progressbar.width(percentComplete + '%') //update progressbar percent complete
-						statustxt.html(percentComplete + '%'); //update status text
+					uploadProgress: function(event, position, total, percentComplete) {
+						progressbar.width(percentComplete + '%')
+						statustxt.html(percentComplete + '%');
 						if(percentComplete>50)
 							{
-								statustxt.css('color','#fff'); //change status text to white after 50%
+								statustxt.css('color','#fff');
 							}
 						},
-					complete: function(response) { // on complete
-						output.html(response.responseText); //update element with received data
-						myform.resetForm();  // reset form
-						submitbutton.removeAttr('disabled'); //enable submit button
-						progressbox.hide(); // hide progressbar
+					complete: function(response) {
+						output.html(response.responseText);
+						myform.resetForm();
+						submitbutton.removeAttr('disabled');
+						progressbox.hide();
 					}
 			});
         }); 
@@ -92,28 +92,28 @@
 	    
 
 				$(formDoc).ajaxForm({
-					beforeSend: function() { //brfore sending form
-						submitDoc.attr('disabled', ''); // disable upload button
+					beforeSend: function() {
+						submitDoc.attr('disabled', '');
 						docstatustxt.empty();
-						docprogressbox.show(); //show progressbar
-						docprogressbar.width(completed); //initial value 0% of progressbar
-						docstatustxt.html(completed); //set status text
-						docstatustxt.css('color','#000'); //initial color of status text
+						docprogressbox.show();
+						docprogressbar.width(completed);
+						docstatustxt.html(completed);
+						docstatustxt.css('color','#000');
 					},
-					uploadProgress: function(event, position, total, percentComplete) { //on progress
-						docprogressbar.width(percentComplete + '%') //update progressbar percent complete
-						docstatustxt.html(percentComplete + '%'); //update status text
+					uploadProgress: function(event, position, total, percentComplete) {
+						docprogressbar.width(percentComplete + '%')
+						docstatustxt.html(percentComplete + '%');
 						if(percentComplete>50)
 							{
-								docstatustxt.css('color','#fff'); //change status text to white after 50%
+								docstatustxt.css('color','#fff');
 							}
 						},
-					complete: function(response) { // on complete
+					complete: function(response) {
 						//docoutput.html(response.responseText);//update element with received data
                         fd.html(response.responseText);
-						formDoc.resetForm();  // reset form
-						submitDoc.removeAttr('disabled'); //enable submit button
-						docprogressbox.hide(); // hide progressbar
+						formDoc.resetForm();
+						submitDoc.removeAttr('disabled');
+						docprogressbox.hide();
                         formdocf.show();
                         //$('#title').val(docoutput + $('#title').val().replace("placeholder", docoutput));
 					}
